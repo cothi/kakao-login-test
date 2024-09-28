@@ -8,7 +8,7 @@ import {Home} from "./components/Home";
 import {ApolloClient, ApolloProvider, InMemoryCache} from "@apollo/client";
 import {AuthCallback} from "./components/AuthCallback";
 const client = new ApolloClient({
-    uri: 'http://localhost:3002/graphql',
+    uri: 'http://54.180.61.91:5000/graphql',
     cache: new InMemoryCache()
 })
 

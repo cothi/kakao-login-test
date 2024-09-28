@@ -3,8 +3,8 @@ import {useLocation} from "react-router-dom";
 import {useEffect, useState} from "react";
 
 const COMPLETE_MUTATION = gql`
-    mutation KakaoAuthLogin($code: String!) {
-        kakaoAuthLogin(input: { code: $code }) {
+    mutation KakaoAuth($code: String!) {
+        kakaoAuth(input: { code: $code }) {
             accessToken
             refreshToken
         }
@@ -24,8 +24,8 @@ export function AuthCallback() {
                 .then(({ data }) => {
                     console.log(data);
                     // 토큰을 로컬 스토리지나 상태 관리 라이브러리에 저장
-                    localStorage.setItem('accessToken', data.kakaoAuthLogin.accessToken);
-                    localStorage.setItem('refreshToken', data.kakaoAuthLogin.refreshToken);
+                    localStorage.setItem('accessToken', data.kakaoAuth.accessToken);
+                    localStorage.setItem('refreshToken', data.kakaoAuth.refreshToken);
                     setMessage("Authentication successful. Redirecting...");
                     setTimeout(() => {
                         window.location.href = '/';
